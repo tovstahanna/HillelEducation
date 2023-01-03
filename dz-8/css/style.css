@@ -158,3 +158,6 @@ footer .top{
 .as-flex .row{
   display: flex;
 }
+.as-flex .col-1-3{
+  flex: 0 1 400px;
+}
