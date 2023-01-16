@@ -174,7 +174,7 @@ li .sub-nav li ul a{
 }
 .main-nav .sub-nav .left{
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 100%;
   padding-right: 10px;
 }
