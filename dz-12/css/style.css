@@ -487,6 +487,8 @@ figcaption{
 }
 .fixed-block .main-nav a:hover{
   color: black;
+  background-color: grey;
+  
 }
 
 .socials ul li{
