@@ -13,9 +13,9 @@
   <main>
     <h1>Page with display as grid</h1>
     <ul class="main-nav">
-      <li><a href="../../index.html">Home</a></li>
+      <li class="home"><a href="../../index.html">Home</a></li>
       <li><a href="../../about/index.html">About</a></li>
-      <li class="has-drop"><a href="../../gallery/index.html">Gallery</a>
+      <li class="has-drop pero"><a href="../../gallery/index.html">Gallery</a>
         <ul class="sub-nav">
           <li><a href="../../gallery/index.html#jan-and-friends-image">Jennifer with "Friends" image</a></li>
           <li><a href="../../gallery/index.html#jan-and-friends-video">Jennifer with "Friends" video</a></li>
@@ -25,21 +25,21 @@
           <li><a href="../../gallery/index.html#jan-with-glass-image">Aniston is holding a glass</a></li>
         </ul>
       </li>
-      <li class="has-drop"><a href="#">Blocks</a>
+      <li class="has-drop active arrow-down sprite"><a href="#">Blocks</a>
        <ul class="sub-nav">
           <li><a href="../table/index.html">Table</a></li>
           <li><a href="../inline-block/index.html">Inline block</a></li>
           <li><a href="../flex/index.html">Flex</a></li>
-          <li class="has-drop"><a href="#">Float</a>
+          <li id="arrow-right" class="has-drop sprite"><a href="#">Float</a>
             <ul class="right">
-              <li><a href="../float/index2.html">clearfix</a></li>
+              <li class="sprite"><a href="../float/index2.html">clearfix</a></li>
               <li><a href="../float/index.html">with :after</a></li>
             </ul> 
           </li>
-          <li class="active has-drop"><a href="#">Grid</a>
+          <li id="arrow-left" class="active has-drop sprite"><a href="#">Grid</a>
             <ul class="left">
               <li><a href="../grid-area/index.html">Area</a></li>
-              <li class="active"><a href="#">Template</a></li>
+              <li class="active sprite"><a href="#">Template</a></li>
             </ul>
           </li>
         </ul>
@@ -91,6 +91,18 @@
       </div>
     </div>
   </main>
+  <footer>
+    <div class="socials">
+      <ul>
+        <li class="sprite facebook"><a target="_blank" href="https://www.facebook.com/profile.php?id=100001959051955"></a></li>
+        <li class="sprite instagram"><a target="_blank" href="https://www.instagram.com/ann15sh/"></a></li>
+        <li class="sprite linkedin"><a target="_blank" href="https://www.linkedin.com/in/ann-tovsta-40719252/"></a></li>
+        <li class="sprite whatsapp"><a href="wapp:+491702171417"></a></li>
+      </ul>
+    </div>
+    <a href="#" class="top">Go to top</a>
+    <p>Copyright 2022. All Rights Reserved.</p>
+  </footer>
 </body>
 
 </html>

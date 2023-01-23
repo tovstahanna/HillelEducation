@@ -55,14 +55,17 @@ body, html{
   scroll-behavior: smooth;
 }
 h1, h2, h3, .main-nav a{
-  color: aqua;
   text-transform: uppercase;
+}
+main p{
+  font-size: 16px;
+  padding: 5px 0;
 }
 .main-nav a{
   color: black;
 }
 h1{
-  border-bottom: 1px aqua solid;
+  border-bottom: 1px beige solid;
   padding-bottom: 10px;
   font-size: 36px;
 }
@@ -73,6 +76,7 @@ h2{
 h3{
   font-size: 20px;
   padding: 20px 0;
+  text-decoration: underline;
 }
 section{
   padding: 10px 20px;
@@ -116,6 +120,13 @@ section{
   margin-bottom: -20px;
   background: url('../images/css_sprites.png') -150px -10px;
 }
+.has-drop.pero>a::before{
+  content: "";
+  display: inline-block;
+  width: 50px; height: 50px;
+  margin-bottom: -20px;
+  background: url('../images/css_sprites.png') -220px -10px;
+}
 .main-nav .home a{
   padding: 10px 10px 10px 5px;
 }
@@ -158,21 +169,15 @@ ul .sub-nav #arrow-right .right .sprite:hover a::before,
 ul .sub-nav #arrow-right a::after{
   background-position: -150px -150px;
 }
-
-.main-nav .sub-nav a, .main-nav .sub-nav ul a,
-.main-nav .active .sub-nav a{
+.main-nav a{
+  color: black;
   padding: 10px;
   border-radius: 0;
   white-space: nowrap;
   background-color: grey;
-  color: black;
 }
-.main-nav .active a,
-.main-nav a:hover,
-.main-nav .active .sub-nav a:hover,
-.main-nav .active .sub-nav .active a,
-.main-nav .sub-nav ul .active a,
-.main-nav .sub-nav ul a:hover{
+.main-nav .active>a,
+.main-nav a:hover{
   color:grey;
   background-color: aqua;
 }
@@ -236,7 +241,7 @@ li .sub-nav li ul a{
 }
 
 footer{
-  padding-top: 50px;
+  padding: 50px 0;
   background-color: black;
 }
 
@@ -258,7 +263,7 @@ footer .top:hover{
   color: azure;
 }
 .row{
-  background-color:black;
+  background-color:cadetblue;
 }
 .as-table .row>div{
   display: table-cell;
@@ -429,6 +434,12 @@ footer .top:hover{
   grid-area: i;
   background-color: gold;
 }
+figcaption{
+  font-size: 10px;
+}
+.float_l figure{
+  padding: 0 15px 10px 0;
+}
 .page-gallery figure, .page-gallery .figure{
   position: relative;
   display: inline-block;
@@ -472,6 +483,9 @@ footer .top:hover{
   border: none;
   color: white;
   font-size: 12px;
+}
+.fixed-block .main-nav a:hover{
+  color: black;
 }
 
 .socials ul li{
