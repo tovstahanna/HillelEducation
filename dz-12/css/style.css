@@ -81,6 +81,7 @@ section{
   margin-bottom: 15px;
   border: 2px solid beige;
   border-radius: 4px;
+  z-index: 5;
 }
 .top{
   border-radius: 5px;
@@ -93,7 +94,6 @@ section{
   padding: 50px 20px;
   font-size: 0;
   position: relative;
-  z-index: 5;
 }
 .main-nav li{
   display: inline-block;
@@ -465,6 +465,7 @@ figcaption{
   position: absolute;
   top: 50%;
   left: 0;
+  margin-top: -15px;
   background-color: white;
   padding: 5px 0;
   opacity: 0.5;
@@ -485,7 +486,7 @@ figcaption{
   left:0px;
   width:20vw;
   height:100vh;
-  z-index: 5;
+  z-index: 10;
 }
 .fixed-block .main-nav{
   background-color: black;
