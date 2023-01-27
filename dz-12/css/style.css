@@ -61,9 +61,7 @@ main p{
   font-size: 16px;
   padding: 5px 0;
 }
-.main-nav a{
-  color: black;
-}
+
 h1{
   border-bottom: 1px beige solid;
   padding-bottom: 10px;
@@ -84,6 +82,12 @@ section{
   border: 2px solid beige;
   border-radius: 4px;
 }
+.top{
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px black solid;
+  text-decoration: none;
+}
 .main-nav{
   list-style: none;
   padding: 50px 20px;
@@ -99,49 +103,72 @@ section{
 .main-nav li+li{
   padding-left: 10px;
 }
+
+.main-nav+li{
+  margin-left: 5px;
+}
+
 .main-nav a{
-  font-size: 18px;
-}
-.main-nav ul a{
   display: block;
-}
-
-.main-nav a, .top{
+  position: relative;
+  font-size: 18px;
   text-decoration: none;
-  padding: 10px;
+  color: black;
+  border-radius: 0;
+  white-space: nowrap;
   border: 1px black solid;
-  border-radius: 5px;
+  background-color: grey;
+  padding: 20px 5px 10px 5px;
+} 
+
+.main-nav .home>a,
+.main-nav .pero>a,
+.main-nav .right .sprite>a,
+.main-nav #arrow-left>a{
+  padding-left: 55px;
 }
 
-.home a::before{
+.main-nav #arrow-right>a,
+.main-nav .arrow-down>a,
+ul #arrow-left .left .sprite>a{
+  padding-right: 55px;
+}
+
+.home a::before, .has-drop.pero>a::before,
+ul .sub-nav #arrow-left>a::before,
+ul .sub-nav #arrow-left .left .sprite>a::after,
+#arrow-right .sprite a::before,
+.main-nav #arrow-right>a::after,
+.sprite a::after{
   content: "";
   display: inline-block;
   width: 50px; height: 50px;
-  margin-bottom: -20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.home a::before{
   background: url('../images/css_sprites.png') -150px -10px;
 }
 .has-drop.pero>a::before{
-  content: "";
-  display: inline-block;
-  width: 50px; height: 50px;
-  margin-bottom: -20px;
   background: url('../images/css_sprites.png') -220px -10px;
 }
-.main-nav .home a{
-  padding: 10px 10px 10px 5px;
+
+.main-nav #arrow-right>a::after,
+ul .sub-nav #arrow-left .left .sprite a::after,
+.has-drop.sprite a::after, .has-drop.sprite:hover a::after{
+  left: auto;
 }
-.sprite a::after,
-#arrow-right a::after,
+
+.main-nav #arrow-right>a::after,
 #arrow-right .sprite a::before,
 #arrow-left a::before,
-#arrow-left .sprite a::after{
-  content: "";
-  display: inline-block;
-  width: 50px; height: 50px;
-  margin-bottom: -20px;
+#arrow-left .sprite a::after,
+.has-drop.sprite a::after,
+ul .sub-nav #arrow-left .left a::after{
   background: url('../images/css_sprites.png') -150px -80px;
 }
-  
+
 .main-nav ul li a::after,
 #arrow-right a::before,
 #arrow-right ul a::after,
@@ -154,39 +181,29 @@ section{
   background-position: -80px -150px;
 } 
 
-ul .sub-nav #arrow-left a::before,
+ul .sub-nav #arrow-left>a::before,
 ul .sub-nav #arrow-right:hover a::after,
 ul .sub-nav #arrow-right .right .sprite a::before,
 ul .sub-nav #arrow-right .right .sprite a::before,
-ul .sub-nav #arrow-left .left .sprite:hover a::after{
+ul .sub-nav #arrow-left .left .sprite:hover a::after,
+ul .sub-nav #arrow-right:hover>a::after{
   background-position: -10px -150px;
 }
 
 ul .sub-nav #arrow-right a::after,
-ul .sub-nav #arrow-left:hover a::before,
+ul .sub-nav #arrow-left:hover>a::before,
 ul .sub-nav #arrow-left .left .sprite a::after,
 ul .sub-nav #arrow-right .right .sprite:hover a::before,
 ul .sub-nav #arrow-right a::after{
   background-position: -150px -150px;
 }
-.main-nav a{
-  color: black;
-  padding: 10px;
-  border-radius: 0;
-  white-space: nowrap;
-  background-color: grey;
-}
+
 .main-nav .active>a,
 .main-nav a:hover{
   color:grey;
   background-color: aqua;
 }
-.main-nav .sub-nav a:hover{
-  border-radius: 0;
-}
-.main-nav+li{
-  margin-left: 5px;
-}
+
 li .sub-nav{
   position: absolute;
   top: 100%;
