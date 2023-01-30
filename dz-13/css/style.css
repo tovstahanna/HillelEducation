@@ -66,7 +66,17 @@ h1{
   border-bottom: 1px beige solid;
   padding-bottom: 10px;
   font-size: 36px;
+  overflow: hidden; /* Hide the line outside of it */
+  white-space: nowrap; /* Disable word wraps */
+  animation: title 15s linear infinite;
 }
+h1:hover{
+  animation-play-state: paused;
+}
+@keyframes title {
+  from { text-indent: 100%; }
+  to { text-indent: -100%; }
+ }
 h2{
   font-size: 24px;
   padding: 20px 0;
@@ -93,6 +103,7 @@ section{
   list-style: none;
   padding: 50px 20px;
   font-size: 0;
+  z-index:10;
   position: relative;
 }
 .main-nav li{
@@ -134,18 +145,14 @@ ul #arrow-left .left .sprite>a{
   padding-right: 55px;
 }
 
-.home a::before, .has-drop.pero>a::before,
-.has-drop.sprite.arrow-down>a::before,
-#arrow-right>a::before,
-#arrow-left>a::before,
-#arrow-left .left .sprite>a::before,
-.main-nav .right .sprite>a::before{
+.sprite>a:before{
   content: "";
   display: inline-block;
   width: 50px; height: 50px;
   position: absolute;
   top: 0;
   left: 0;
+  background: url('../images/css_sprites.png') -150px -80px; /* arrow down */
 }
 
 #arrow-right>a::before,
@@ -155,14 +162,11 @@ ul #arrow-left .left .sprite>a{
   right: 0;
 }
 
-.home a::before{
+.sprite.home>a::before{
   background: url('../images/css_sprites.png') -150px -10px;
 }
-.has-drop.pero>a::before{
+.has-drop.sprite.pero>a::before{
   background: url('../images/css_sprites.png') -220px -10px;
-}
-.main-nav .sprite>a::before{
-  background: url('../images/css_sprites.png') -150px -80px; /* arrow down */
 }
 
 #arrow-right:hover>a::before, #arrow-left>a::before,
@@ -207,13 +211,31 @@ li .sub-nav li ul a{
   flex-direction: column;
   border-radius: 5px;
 }
-.main-nav .has-drop ul,
+/*.main-nav .has-drop ul,
 .main-nav .has-drop ul ul{
   display: none;
+} */
+.main-nav .pero>.sub-nav{
+  display: block;
+  overflow: hidden;
+  height: 0;
+  transition: all 1.25s cubic-bezier(0.88, -0.21, 0.21, 1.28);
 }
+.main-nav .pero:hover>.sub-nav{
+  height: 320px;
+}
+
+.main-nav .arrow-down>.sub-nav{
+  top: -10000px;
+  transition: all 1.5s cubic-bezier(0.88, -0.21, 0.21, 1.28);
+}
+
+.main-nav .arrow-down:hover>.sub-nav{
+  top: 100%;
+}
+
 .main-nav .has-drop:hover .sub-nav,
-.main-nav li ul .has-drop:hover ul
-{
+.main-nav li ul .has-drop:hover ul{
   display: block;
 }
 .main-nav li .sub-nav li{
@@ -231,15 +253,26 @@ li .sub-nav li ul a{
 .main-nav .sub-nav .right{
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 9999px;
   padding-left: 10px;
+  transition: all 1.5s linear;
 }
+
+.main-nav #arrow-right:hover>.right{
+  left: 100%;
+}
+
 .main-nav .sub-nav .left{
   position: absolute;
   bottom: 0;
-  right: 100%;
+  right: 9999px;
   padding-right: 10px;
+  transition: all 1.5s ease;
 }
+.main-nav #arrow-left:hover>.left{
+  right: 100%;
+}
+
 
 footer{
   padding: 50px 0;
@@ -490,21 +523,21 @@ figcaption{
 .fixed-block .main-nav a:hover{
   color: black;
   background-color: grey;
-  
 }
 
 .socials ul li{
   display: inline;
   width: 50px; height: 50px;
 }
+
 .socials ul a::before{
-  content: "";
-  display: inline-block;
-  width: 50px; height: 50px;
   position: relative;
-  background: url('../images/css_sprites.png') -150px -10px;
+  animation: icon 1.5s ease infinite;
 }
-  
+@keyframes icon {
+  10% { transform: rotate(20deg); }   
+  95% { transform: rotate(-20deg); }
+ }
 .socials ul .facebook a::before{
   background-position: -10px -10px;
 }
