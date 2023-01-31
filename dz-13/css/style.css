@@ -44,9 +44,9 @@ table {
 body{
   color:beige;
   background-color:grey;
-  font-family: fantasy;
   text-align: center;
   position: relative;
+  overflow-x: hidden;
 }
 main{
   padding: 20px 50px;
@@ -211,15 +211,12 @@ li .sub-nav li ul a{
   flex-direction: column;
   border-radius: 5px;
 }
-/*.main-nav .has-drop ul,
-.main-nav .has-drop ul ul{
-  display: none;
-} */
 .main-nav .pero>.sub-nav{
   display: block;
   overflow: hidden;
   height: 0;
   transition: all 1.25s cubic-bezier(0.88, -0.21, 0.21, 1.28);
+  transition-delay: 0.25s;
 }
 .main-nav .pero:hover>.sub-nav{
   height: 320px;
@@ -240,7 +237,11 @@ li .sub-nav li ul a{
 }
 .main-nav li .sub-nav li{
   padding-left: 10px;
+  transition: all 0.5s linear;
   display: block;
+}
+.main-nav li .sub-nav li:hover{
+  padding-left: 5px;
 }
 .main-nav li .sub-nav+li{
   border: none;
@@ -526,17 +527,40 @@ figcaption{
 }
 
 .socials ul li{
-  display: inline;
+  display: inline-block;
   width: 50px; height: 50px;
+  animation: icon 1.5s ease infinite;
 }
 
 .socials ul a::before{
   position: relative;
-  animation: icon 1.5s ease infinite;
+  
 }
 @keyframes icon {
   10% { transform: rotate(20deg); }   
   95% { transform: rotate(-20deg); }
+ }
+
+ .socials ul .facebook{
+  animation: facebook 2s linear infinite;
+ }
+ @keyframes facebook {
+  10% { transform: rotate(-30deg); }   
+  95% { transform: rotate(40deg); }
+ }
+ .socials ul .linkedin{
+  animation: linkedin 1s linear infinite;
+ }
+ @keyframes linkedin {
+  10% { transform: rotate(20deg); }   
+  95% { transform: rotate(-20deg); }
+ }
+ .socials ul .whatsapp{
+  animation: whatsapp 1.5s ease-in infinite;
+ }
+ @keyframes whatsapp {
+  10% { transform: rotate(50deg); }   
+  95% { transform: rotate(-50deg); }
  }
 .socials ul .facebook a::before{
   background-position: -10px -10px;
