@@ -49,6 +49,7 @@ body{
   overflow-x: hidden;
 }
 main{
+  overflow: hidden;
   padding: 20px 50px;
 }
 body, html{
@@ -224,11 +225,13 @@ li .sub-nav li ul a{
 
 .main-nav .arrow-down>.sub-nav{
   top: -10000px;
+  pointer-events: none;
   transition: all 1.5s cubic-bezier(0.88, -0.21, 0.21, 1.28);
 }
 
 .main-nav .arrow-down:hover>.sub-nav{
   top: 100%;
+  pointer-events: auto;
 }
 
 .main-nav .has-drop:hover .sub-nav,
