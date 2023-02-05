@@ -528,8 +528,10 @@ figcaption{
   color: black;
   background-color: grey;
 }
-
-.socials ul li{
+.socials li{
+  display: inline-block;
+}
+.socials ul a{
   display: inline-block;
   width: 50px; height: 50px;
   animation: icon 1.5s ease infinite;
@@ -588,56 +590,87 @@ figcaption{
   position: fixed;
   right: 0;
   bottom: 50%;
-  display: inline-block;
   height: 200px;
   width: 50px;
   margin-bottom: -100px;
-  background-color: rgb(77, 121, 121);
+  background-color: rgb(138, 127, 114);
   border: 2px solid black;
-  border-radius: 4px;
+  border-radius: 20px 0 0 20px;
   color: bisque;
-  
+  transition: width, background-color 1.5s linear;
+  animation: pulse2 3s infinite;
 }
-.hover-me-block .button{
-  position: relative;
-  display: inline-block;
-  height: 200px;
-  width: 50px;
-}
+
 .hover-me-block h2{
   position: absolute;
   bottom: 0;
-  left: 0;
-  transform-origin: 0% 0%;
-  transform: rotate(-90deg);
-  animation: two 1.5s ease-in infinite;
-  animation-direction: alternate;
-  display: inline-block;
-  width: 150px;
-  padding: 10px 20px 5px 15px;
+  left: -40px;
+  transform-origin: 39px 0;
+  transform: rotate(-90deg); 
+  padding: 15px 20px 5px 15px;
+  text-transform: uppercase;
+  font-size: 30px;
+  white-space: nowrap;
 }
-@keyframes two {
-  25% {
-    scale: 1.05;
+
+.hover-me-block h2>span{
+  animation: pulse 2s infinite linear;
+  color: rgb(218, 211, 204);
+}
+
+@keyframes pulse {
+  from {
+    transform:scale(.9)
   }
-  70% {
-    scale: 0.95;
+  to {
+    transform:scale(1.1)
+  }
+}
+@keyframes pulse2 {
+  0%{
+    background-color: rgb(115, 148, 156);
+  }
+  100%{
+    background-color: rgb(94, 109, 109);
   }
 }
 .hover-me-block:hover{
-  width: 200px;
-  height: 200px;
-}
-.hover-me-block:hover .button{
-  height: 50px;
-  width: 200px;
+  background-color: rgb(125, 190, 190);
+  width: 250px;
+  animation: paused;
 }
 .hover-me-block:hover h2{
-  transform: rotate(0deg);
-  transform-origin: unset;
-  bottom: auto;
-  top: 0;
+  animation: paused;
 }
 .romb-socials{
+  width: 104px;
+  transform: rotate(45deg);
+  padding: 10px 0 80px 80px;
   display: none;
+}
+.hover-me-block:hover .romb-socials{
+  display: block;
+}
+.romb-socials.socials li{
+  outline: 1px solid rgb(209, 202, 202);
+}
+.romb-socials.socials li:first-child{
+  margin: 0 0px 4px 0;
+}
+.romb-socials.socials ul li,
+.romb-socials.socials ul a{
+  animation: paused;
+}
+.romb-socials.socials ul li{
+  animation: turner 2s infinite ease;
+}
+.romb-socials.socials ul li:hover{
+  animation: paused;
+}
+@keyframes turner{
+  from{  transform: skew(5deg,0deg)   }
+  to  {  transform: skew(-5deg,0deg) }
+}
+.romb-socials.socials ul a::before{
+  transform: rotate(-45deg);
 }
