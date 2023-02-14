@@ -947,7 +947,7 @@ main::after{
   width: 200px;
   height: 400px;
   border-radius: 400px 0px 0 400px;
-  background-image: radial-gradient(ellipse at 200px 190px,transparent 63%, white 64%);
+  background-image: radial-gradient(ellipse at 0px 140px,transparent 45%, white 46%);
 }
 .window{
   z-index: 5;
