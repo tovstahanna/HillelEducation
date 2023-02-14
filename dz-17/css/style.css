@@ -1,3 +1,43 @@
+@font-face {
+  font-family: 'BebasNeue-Regular';
+  src: url('../fonts/BebasNeue-Regular.ttf');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'always_smileregular';
+    src: url('../fonts/always_smile-webfont.eot');
+    src: url('../fonts/always_smile-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/always_smile-webfont.woff2') format('woff2'),
+         url('../fonts/always_smile-webfont.woff') format('woff'),
+         url('../fonts/always_smile-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Always Smile';
+  src: url('../fonts/always_smile_1/AlwaysSmileRegular.eot');
+  src: url('../fonts/always_smile_1/AlwaysSmileRegular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/always_smile_1/AlwaysSmileRegular.woff2') format('woff2'),
+      url('../fonts/always_smile_1/AlwaysSmileRegular.woff') format('woff'),
+      url('../fonts/always_smile_1/AlwaysSmileRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roseting';
+  src: url('../fonts/roseting/Roseting-Regular.eot');
+  src: url('../fonts/roseting/Roseting-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/roseting/Roseting-Regular.woff2') format('woff2'),
+      url('../fonts/roseting/Roseting-Regular.woff') format('woff'),
+      url('../fonts/roseting/Roseting-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -57,6 +97,7 @@ body, html{
 }
 h1, h2, h3, .main-nav a{
   text-transform: uppercase;
+  font-family: 'BebasNeue-Regular';
 }
 main p{
   font-size: 16px;
@@ -150,7 +191,16 @@ section{
 ul #arrow-left .left .sprite>a{
   padding-right: 55px;
 }
-
+.sub-nav li>a{
+  font-family: 'always_smileregular';
+}
+li .sub-nav li ul a{
+  font-family: 'Always Smile';
+}
+li .sub-nav li ul.left li>a,
+li .sub-nav li ul.right li>a{
+  font-family: 'Roseting';
+}
 .sprite>a:before{
   content: "";
   display: inline-block;
@@ -1078,7 +1128,32 @@ input[type="checkbox"]:checked + label::before{
   margin-top: 30px;
 }
 
-input[type="checkbox"]::-webkit-outer-spin-button,
-input[type="checkbox"]::-webkit-inner-spin-button{
-  background-image: url('../images/clock-svgrepo-com.svg');
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  opacity: 0;
+}
+.switcher{
+  position: relative;
+  display: inline-block;
+}
+.switcher::before{
+  content: "\002B";
+  top: 5px;
+}
+.switcher::after{
+  content: "\2212";
+  top: 16px;
+}
+.switcher::before,
+.switcher::after{
+  position: absolute;
+  right: 5px;
+  display: block;
+  width: 15px;
+  height: 10px;
+  font-style: normal;
+  pointer-events: none;
+  background-color: #747fdf;
+  text-align: center;
+  border: 1px solid black;
 }

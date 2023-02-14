@@ -65,8 +65,11 @@
           <input id="tel" type="tel" placeholder="Phone number"><br>
           <label for="tel">Your phone</label>
         </p>
-        <p>
-          <input id="tables" type="number" min="1" max="10" step="1"><br>
+        <p class="number">
+          <span class="switcher">
+            <input id="tables" type="number" min="1" max="10" step="1">
+          </span>
+          <br>
           <label for="tables">Number of tables</label>
         </p>
         <p>
@@ -80,11 +83,14 @@
           </select><br>
           <label for="hours">Hours for rent</label>
         </p>
-        <p class="two">
+        <p class="number two">
           <input id="waiters" type="checkbox">
           <label for="waiters">We need waiters</label>
           <span class="waiters">
-            <input id="num_waiters" type="number" min="1" max="10" step="1"><br>
+            <span class="switcher">
+              <input id="num_waiters" type="number" min="1" max="10" step="1">
+            </span>
+            <br>
             <label for="num_waiters">Number of waiters</label>
           </span>
         </p>
