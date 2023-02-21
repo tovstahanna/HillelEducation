@@ -195,6 +195,7 @@ body{
     font: 18px/28px 'pf_din_text_comp_prothin', Arial, sans-serif;
     color: #7d7d7d;
     overflow-x: hidden;
+    width: 1920px
 }
 header{
     font: 18px/28px 'pf_din_text_comp_prothin', Arial, sans-serif;
@@ -336,6 +337,18 @@ header input[type="submit"]{
 main{
     margin-top: -25px;
 }
+section{
+    margin: 0 auto;
+}
+section h2{
+    font: 40px/42px 'flowbold', Arial, sans-serif;
+    padding: 27px 0 53px 0;
+    margin: 27px 0 0 75px;
+    text-shadow: 1px 1px 1px #9a9e9d;
+    text-transform: uppercase;
+    text-align: center;
+    color: #65baaf;
+}
 .hero{
     min-height: 592px;
     position: relative;
@@ -458,7 +471,7 @@ main{
     position: absolute;
     left: 50%;
     top: -22px;
-    margin-left: -22px;
+    margin-left: 0;
     display: block;
     width: 44px; height: 43px;
     background: url('../images/css_sprites.png') -10px -365px white;
