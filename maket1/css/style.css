@@ -196,6 +196,15 @@ body{
     color: #7d7d7d;
     overflow-x: hidden;
 }
+body::after{
+    content: "";
+    position: fixed;
+    top: 209px;
+    left: 0;
+    width: 94px;
+    height: 56px;
+    background: url('../images/css_sprites.png') -69px -192px;
+}
 header{
     font: 18px/28px 'pf_din_text_comp_prothin', Arial, sans-serif;   
     height: 139px;
@@ -210,15 +219,7 @@ header{
     margin: 0 auto;
     z-index: 10;
 }
-header::after{
-    content: "";
-    position: fixed;
-    top: 209px;
-    left: 0;
-    width: 94px;
-    height: 56px;
-    background: url('../images/css_sprites.png') -69px -192px;
-}
+
 header ul{
     margin: 0;
 }
