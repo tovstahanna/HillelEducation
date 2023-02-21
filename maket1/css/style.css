@@ -195,16 +195,19 @@ body{
     font: 18px/28px 'pf_din_text_comp_prothin', Arial, sans-serif;
     color: #7d7d7d;
     overflow-x: hidden;
-    width: 1920px
 }
 header{
-    font: 18px/28px 'pf_din_text_comp_prothin', Arial, sans-serif;
+    font: 18px/28px 'pf_din_text_comp_prothin', Arial, sans-serif;   
+    height: 139px;
+    padding-top: 12px;
+    color: #959595;   
+}
+.container{
     position: relative;
     display: flex;
     justify-content: center;
-    min-height: 139px;
-    padding-top: 12px;
-    color: #959595;
+    width: 980px;
+    margin: 0 auto;
     z-index: 10;
 }
 header::after{
@@ -226,6 +229,9 @@ header .menu a, .languages li:hover a{
     text-decoration: none;
     text-transform: uppercase;
     color: #000000;
+}
+header .contacts{
+    padding: 0;
 }
 header .contacts li{
     position: relative;
@@ -270,19 +276,20 @@ header .left, header .right{
     flex-direction: column;
 }
 header .left{
-    padding-left: 30px;
+    padding: 12px 0 0 30px;
 }
-.options, .introduction{
+.options{
     display: flex;
+    padding-bottom: 20px;
 }
 header .menu{
-    padding: 32px 0 0 ;
+    padding: 13px 0 0;
 }
 header .menu li, .languages li{
     display: inline;
 }
 header .menu li{
-    padding-right: 15px;
+    padding-right: 24px;
 }
 header .menu li:last-child{
     padding-right: 0;
@@ -294,14 +301,15 @@ header .menu li.active a{
     color: #65baaf;
 }
 .logo{
-    margin: -25px 14px -25px 17px;
-    border: 25px solid white;
-    border-radius: 112px;
-    background: white;
+    margin: -20px 14px 0 17px;
+}
+.logo a{
+    display: inline-block;
 }
 header form{
     color: #959595;
     font-size: 18px;
+    padding-top: 12px;
 }
 header input[type="search"]{
     height: 28px;
@@ -350,8 +358,7 @@ section h2{
     color: #65baaf;
 }
 .hero{
-    min-height: 592px;
-    position: relative;
+    width: 100%;
 }
 .hero h1{
     position: relative;
@@ -364,13 +371,15 @@ section h2{
     margin: 0;
 }
 .hero .slider{
-    margin: -100px 0 0;
     position: relative;
+    margin: -100px 0 100px 0;
 }
 .hero .slides{
     position: relative;
     margin: 0;
     padding: 0;
+    height: 591px;
+    overflow: hidden;
 }
 .hero .slides li{display: none;}
 .hero .slides li.active{display: block;}
@@ -437,6 +446,7 @@ section h2{
     justify-content: space-around;
     align-items: center;
     position: relative;
+    display: flex;
     z-index: 5;
 }
 .introduction img:first-child{
