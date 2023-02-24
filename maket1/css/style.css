@@ -409,8 +409,6 @@ section h2{
     height: 591px;
     overflow: hidden;
 }
-.hero .slides li{display: none;}
-.hero .slides li.active{display: block;}
 .hero .image{
     position: relative;
     top: -95px;
@@ -527,11 +525,15 @@ section h2{
     margin: 0 auto;
 }
 .products .container{
-    display: block;
-    padding: 0 0 0 140px;
+    width: 1006px;
+    padding: 0 0 0 167px;
 }
 .book{
     position: relative;
+    display: inline-block;
+    /* font-size: 0; */
+    width: 744px;
+    height: 421px;
     background: url('../images/book.png') no-repeat;
 }
 .book::before, .book::after, .book .tabs li::before{
@@ -548,24 +550,26 @@ section h2{
 }
 .book::after{
     top: -23px;
-    right: 316px;
+    right: 81px;
     width: 66px; height: 64px;
     background-position: -69px -268px;
 }
 .book .tabs{
-    position: absolute;
-    top: -7%;
-    left: 9%;
+    position: relative;
 }
 .book .tabs ul{
     list-style: none;
-    margin: 7px 0 0;
+    position: absolute;
+    display: inline-block;
+    top: -49px;
+    left: 9%;
+    margin: 0;
     padding: 0 0 0 40px;
 }
 .book .tabs li::before{
     width: 147px; height: 49px;
-    top: 14px;
-    left: 0;
+    top: 9px;
+    left: -12px;
     background: url('../images/tabs-bg.png') -10px -77px;
     z-index: -10;
 }
@@ -579,12 +583,12 @@ section h2{
 }
 .book .tabs li.active::before{
     width: 174px;
-    top: 2px;
-    left: -5px;
+    top: -3px;
+    left: 16px;
     background-position: -10px -10px;
     z-index: -5;
 }
-.book .tabs li a{
+.book .tabs a{
     font: 17px 'pf_din_text_comp_prothin', Arial, sans-serif;
     color: #fff;
     font-weight: 500;
@@ -593,13 +597,118 @@ section h2{
     display: inline-block;
     padding: 23px 0 0px 21px;
 }
+.book .tabs li:last-child::before{
+    top: 12px;
+    left: 9px;
+    width: 155px; height: 42px;
+    background: url('../images/tabs-bg.png') -204px -10px;
+}
+.book .tabs li:last-child>a{
+    padding: 28px 0 0px 36px;
+}
 .book .tabs .active>a{
     font: 17px 'pf_din_text_comp_promedium', Arial, sans-serif;
-    padding: 19px 0 0 16px;
+    padding: 19px 0 0 36px;
 }
-.tabs-content>div{
+.tabs-content>div, .slides li{
     display: none;
 }
-.tabs-content div.active{
+.tabs-content div.active, .slides .active{
     display: block;
 }
+.tabs-content{
+    padding: 53px 25px 50px 84px;
+}
+.tabs-content>div{
+    padding: 0 50px 13px 0;
+}
+.tabs-content .slides{
+    margin: 0;
+}
+.tabs-content .slides .active{
+    display: flex;
+}
+.tabs-content .slides .image{
+    margin-top: 11px;
+}
+.tabs-content .slides img{
+    margin-bottom: 19px;
+}
+
+.tabs-content .slides .image a{
+    font: 18px 'pf_din_text_comp_promedium', Arial, sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #8f5926;
+    margin-left: 38px;
+    padding: 0px 42px 0 42px;
+}
+.tabs-content .slides .image a:hover{
+    text-decoration: underline;
+}
+.tabs-content .slides .description{
+    font: 20px/26px 'pf_din_text_comp_prothin', Arial, sans-serif;
+    text-align: center;
+    margin-left: -25px;
+    padding-left: 38px;
+}
+.tabs-content .slides .description h3{
+    font: 36px/38px 'pf_din_text_comp_promedium', Arial, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #caa977;
+    margin: -2px 0 20px -5px;
+}
+.tabs-content .slides .description h3::after{
+    content: "";
+    display: block;
+    width: 45px; height: 8px;
+    margin: 32px auto 0;
+    background: url(../images/css_sprites.png) -295px -152px;
+}
+.tabs-content .slides p{
+    margin: 12px 32px;
+}
+.tabs-content .navigation{
+    margin: 0;
+    padding: 44px 0 0 16px;
+}
+.tabs-content .navigation li{
+    display: inline-block;
+    font-size: 0;
+}
+.tabs-content .navigation li a{
+    position: relative;
+    font: 16px 'pf_din_text_comp_prothin', Arial, sans-serif;
+    text-transform: uppercase;
+    color: #caa977;
+    padding: 7px 40px 0 0;
+}
+.tabs-content .navigation li a::before{
+    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0px;
+    left: 38px;
+    background: url(../images/css_sprites.png) -478px -138px;
+}
+.tabs-content .navigation .next a{
+    padding: 7px 0 0 40px;
+}
+.tabs-content .navigation .next a::before{
+    transform: rotate(180deg);
+    top: 0px;
+    left: 0;
+}
+.small-slider{
+    display: inline-block;
+    /* font-size: 0; */
+    width: 227px;
+}
+
+
+
