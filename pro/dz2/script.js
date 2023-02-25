@@ -3,7 +3,7 @@ alert('Hello!')
 const firtsNumber = prompt('What is the first number?');
 const secondNumber = prompt('What is the second number?');
 
-sum = firtsNumber + secondNumber
+sum = Number(firtsNumber) + Number(secondNumber)
 minus = firtsNumber - secondNumber
 multi = firtsNumber * secondNumber
 division = firtsNumber / secondNumber
