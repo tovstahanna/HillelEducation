@@ -371,11 +371,12 @@ section{
 }
 section h2{
     font: 40px/42px 'flowbold', Arial, sans-serif;
-    padding: 18px 0 53px 246px;
+    padding: 18px 0 13px 246px;
     text-shadow: 1px 1px 1px #9a9e9d;
     text-transform: uppercase;
     text-align: center;
     color: #65baaf;
+    margin-bottom: 0;
 }
 .hero{
     width: 100%;
@@ -525,18 +526,17 @@ section h2{
     margin: 0 auto;
 }
 .products .container{
+    display: block;
     width: 1006px;
     padding: 0 0 0 167px;
 }
 .book{
     position: relative;
     display: inline-block;
-    /* font-size: 0; */
+    font-size: 0;
     width: 744px;
-    height: 421px;
-    background: url('../images/book.png') no-repeat;
 }
-.book::before, .book::after, .book .tabs li::before{
+.book::before, .book::after{
     content: "";
     display: block;
     position: absolute;
@@ -544,71 +544,66 @@ section h2{
     background: url('../images/css_sprites.png') -10px -151px;
 }
 .book::before{
-    top: -67px;
-    left: 301px;
-    width: 39px; height: 194px;
+    top: -4px;
+    left: 300px;
+    width: 39px;
+    height: 194px;
 }
 .book::after{
-    top: -23px;
+    top: 40px;
     right: 81px;
     width: 66px; height: 64px;
     background-position: -69px -268px;
 }
 .book .tabs{
     position: relative;
-}
-.book .tabs ul{
-    list-style: none;
-    position: absolute;
     display: inline-block;
-    top: -49px;
-    left: 9%;
-    margin: 0;
-    padding: 0 0 0 40px;
-}
-.book .tabs li::before{
-    width: 147px; height: 49px;
-    top: 9px;
-    left: -12px;
-    background: url('../images/tabs-bg.png') -10px -77px;
+    padding: 19px 0 0 107px;
     z-index: -10;
 }
-.book .tabs li{
+.book .tabs ul{
     position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.book .tabs li{
+    width: 147px; height: 49px;
     display: inline-block;
-    margin: 0 15px 0 0;
+    position: absolute;
+    top: 8px;
+    left: 204px;
+    background: url('../images/tabs-bg.png') -10px -77px;
+    
 }
 .book .tabs li.active{
-    margin: 0 43px 0 0;
-}
-.book .tabs li.active::before{
+    position:static;
     width: 174px;
-    top: -3px;
-    left: 16px;
+    margin: 0px 13px 0 16px;
     background-position: -10px -10px;
-    z-index: -5;
 }
 .book .tabs a{
-    font: 17px 'pf_din_text_comp_prothin', Arial, sans-serif;
+    font: 20px 'pf_din_text_comp_prothin', Arial, sans-serif;
     color: #fff;
     font-weight: 500;
-    text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
-    padding: 23px 0 0px 21px;
+    padding: 14px 0 0px 35px;
 }
-.book .tabs li:last-child::before{
-    top: 12px;
-    left: 9px;
+.book .tabs li:last-child{
+    position: absolute;
+    top: 7px;
+    left: 348px;
     width: 155px; height: 42px;
     background: url('../images/tabs-bg.png') -204px -10px;
 }
 .book .tabs li:last-child>a{
-    padding: 28px 0 0px 36px;
+    padding: 15px 0 0px 28px;
 }
 .book .tabs .active>a{
     font: 17px 'pf_din_text_comp_promedium', Arial, sans-serif;
-    padding: 19px 0 0 36px;
+    padding: 17px 0 7px 21px;
+    text-transform: uppercase;
 }
 .tabs-content>div, .slides li{
     display: none;
@@ -617,7 +612,9 @@ section h2{
     display: block;
 }
 .tabs-content{
-    padding: 53px 25px 50px 84px;
+    padding: 48px 21px 51px 85px;
+    margin-top: -6px;
+    background: url('../images/book.png') no-repeat;
 }
 .tabs-content>div{
     padding: 0 50px 13px 0;
@@ -651,8 +648,7 @@ section h2{
 .tabs-content .slides .description{
     font: 20px/26px 'pf_din_text_comp_prothin', Arial, sans-serif;
     text-align: center;
-    margin-left: -25px;
-    padding-left: 38px;
+    padding: 6px 0 0 12px;
 }
 .tabs-content .slides .description h3{
     font: 36px/38px 'pf_din_text_comp_promedium', Arial, sans-serif;
@@ -669,11 +665,11 @@ section h2{
     background: url(../images/css_sprites.png) -295px -152px;
 }
 .tabs-content .slides p{
-    margin: 12px 32px;
+    margin: 12px 34px;
 }
 .tabs-content .navigation{
     margin: 0;
-    padding: 44px 0 0 16px;
+    padding: 44px 0 0 13px;
 }
 .tabs-content .navigation li{
     display: inline-block;
@@ -681,10 +677,11 @@ section h2{
 }
 .tabs-content .navigation li a{
     position: relative;
-    font: 16px 'pf_din_text_comp_prothin', Arial, sans-serif;
+    font: 16px 'pf_din_text_comp_promedium', Arial, sans-serif;
     text-transform: uppercase;
+    text-decoration: none;
     color: #caa977;
-    padding: 7px 40px 0 0;
+    padding: 7px 51px 5px 0;
 }
 .tabs-content .navigation li a::before{
     content: "";
@@ -693,16 +690,35 @@ section h2{
     height: 32px;
     position: absolute;
     top: 0px;
-    left: 38px;
-    background: url(../images/css_sprites.png) -478px -138px;
+    left: 50px;
+    background: url(../images/css_sprites.png) -479px -138px;
 }
+
+.tabs-content .navigation li:hover a{
+    color: #65baaf;
+}
+.tabs-content .navigation li:hover a::before{
+    transform: rotate(180deg);
+    background-position: -479px -87px;
+}
+.tabs-content .navigation li.next:hover a::before{
+    transform: rotate(0deg);
+    background-position: -479px -87px;
+}
+
+
 .tabs-content .navigation .next a{
-    padding: 7px 0 0 40px;
+    padding: 6px 0 12px 50px;
 }
 .tabs-content .navigation .next a::before{
     transform: rotate(180deg);
-    top: 0px;
-    left: 0;
+    top: -1px;
+    left: 9px;
+}
+.as-float::after {
+    content: "";
+    clear: both;
+    display: block;
 }
 .small-slider{
     display: inline-block;
@@ -710,5 +726,10 @@ section h2{
     width: 227px;
 }
 
-
+.small-slider .prev, .small-slider .next{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 20px;
+}
 
