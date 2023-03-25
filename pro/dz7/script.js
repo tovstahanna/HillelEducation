@@ -28,12 +28,18 @@ function sumArray(array){
 
 const util = {
     reverse: source => {
-        let result = [];
+        let result;
         let i = 0;
         if(Array.isArray(source)){
-
+            result = [];
             for (let index = source.length-1; index >= 0 ; index--) {
                 result[i] = source[index];
+                i++;
+            }
+        }else{
+            result = '';
+            for (let index = source.length-1; index >= 0 ; index--) {
+                result = result + source[index];
                 i++;
             }
         }
@@ -70,9 +76,11 @@ const util = {
 
 const array = [23, 26, 1, -30, 60, -10, 'test string', null, undefined, false, true, '', 10000, 50];
 const arrayStrings = ['Hi', 'The world is my', 'Kharkiv', 'Peace', 'This is my longest string ever!!!!', 'la la la'];
+const string = 'This is my longest string ever!!!!';
 
 console.log('Reverse');
 console.log(util.reverse(array));
+console.log(util.reverse(string));
 console.log(util.reverse(arrayStrings));
 
 console.log('verifyNumbers');
