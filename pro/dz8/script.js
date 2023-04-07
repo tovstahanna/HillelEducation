@@ -6,10 +6,24 @@ function verifySource(source){
         let j=0;
         let number;
         for (let index = 0; index < source.length; index++) {
-            number = +source[index];
-            if( source[index] !== '' && +source[index] === number && source[index] !== null && source[index] !== true && source[index] !== false) {
-                result[j] = source[index];
-                j++;
+            switch (typeof source[index]) {
+                case "number":
+                  if (!isNaN(source[index])) {
+                    result[j] = source[index];
+                    j++;
+                  }
+                  break;
+                case "string":
+                  if (source[index] !== "" && !isNaN(source[index])) {
+                    number = +source[index];
+                    if (!isNaN(number)) {
+                      result[j] = number;
+                      j++;
+                    }
+                  }
+                  break;
+                default:
+                  break;
             }
         }
     }
@@ -18,8 +32,8 @@ function verifySource(source){
 function sumArray(array){
     let result = 0;
     if( Array.isArray(array) ){
-        array = verifySource(array);
-        result = array.reduce((accumulator, current) => {
+        let verified_array = verifySource(array);
+        result = verified_array.reduce((accumulator, current) => {
             accumulator = accumulator + current;
             return accumulator;
         }, 0);
@@ -36,43 +50,41 @@ const util = {
     getMedian: function(array){
         let result = 0;
         let middle = Number(array.length)/2;
-        array.sort((a, b) => { return a - b; });
+        let sort_array  = array.slice().sort((a, b) => { return a - b; });
         
-        if( array.length % 2 === 0 ){
-            result = sumArray([array[middle-1], array[middle]])/2;
+        if( sort_array.length % 2 === 0 ){
+            result = sumArray([sort_array[middle-1], sort_array[middle]])/2;
         }else{
-            result = array[middle+0.5];
+            result = sort_array[middle+0.5];
         }
         return result;
     },
     expulsion: function (array){
-        return array.filter((element, index) => {
+        return array.filter((element) => {
             return element.avarageMark < 50;
         });
     },
     newStudent: function (array, studentName, studentSpecialty, studentMarks){
-        const student = {
+        const newStudent = {
             name: studentName,
             specialty: studentSpecialty,
             marks: studentMarks
-        }
-        array.push(student);
+        };
+        array.push(newStudent);
         return array;
     },
-    bestStudents: function (array){
-        return array.slice(0, 5);
+    bestStudents: function (array, num){
+        const res_array = average( array ).sort((a, b) => {
+            return b.avarageMark - a.avarageMark;
+        });
+        return  num>0 ? res_array.slice(0, num) : res_array.slice();
     }
 }
 
 function average(array){
-    const avarageArray = [];
-    for (let index = 0; index < array.length; index++) {
-        avarageArray[index] = {
-            name: array[index].name,
-            avarageMark: util.getAverage(array[index].marks),
-        }
-    }
-    return avarageArray;
+    return array.map( student => ({name: student.name,
+        avarageMark: util.getAverage(student.marks)})
+    );
 }
 
 function addMidian(array){
@@ -93,19 +105,10 @@ console.log('Список студентов на отчисление', util.ex
 
 const newArray = util.newStudent( test.slice(), 'Bill Harrison', 'Vice President', [35, 25, 60, 99, 48, 29] );
 console.log('Добавим нового студента:', newArray);
-
 console.log('Распечатать список студентов:');
-const printArray = average( newArray ).sort((a, b) => {
-    return b.avarageMark - a.avarageMark;
-});
-
-/* console.log(printArray.forEach((element, index, array) => {
-    console.log(index+1 + '.' + element.name + ' - ' + element.avarageMark); 
-})); // выдает вконце последний элементом underfind - не знаю почему..
-*/
-
+const printArray = util.bestStudents(newArray, 0);
 for (let index = 0; index < printArray.length; index++) {
     console.log(index+1 + '.' + printArray[index].name + ' - ' + printArray[index].avarageMark); 
 }
 
-console.log('Список самых успешных студентов:', util.bestStudents(printArray));
+console.log('Список самых успешных студентов:', util.bestStudents(newArray, 5));

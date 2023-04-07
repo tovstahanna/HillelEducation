@@ -18,9 +18,9 @@ function verifySource(source){
 function sumArray(array){
     let result = 0;
     if( Array.isArray(array) ){
-        array = verifySource(array);
-        for (let index = 0; index < array.length; index++) {
-            result += array[index];
+        let varified_array = verifySource(array);
+        for (let index = 0; index < varified_array.length; index++) {
+            result += varified_array[index];
         }
     }
     return result;
@@ -53,10 +53,10 @@ const util = {
     getMin: (source) => {
         let result;
         if(Array.isArray(source)){
-            source = verifySource(source);
-            result = source[0];
-            for (let index = 0; index < source.length; index++) {
-                if(result>source[index]) result = source[index];
+            let verified_source = verifySource(source);
+            result = verified_source[0];
+            for (let index = 0; index < verified_source.length; index++) {
+                if(result>verified_source[index]) result = verified_source[index];
             }
             return result;
         }
