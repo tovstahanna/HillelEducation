@@ -11,14 +11,16 @@
 <body>
     <h1>To Do List</h1>
     <div id="main">
-        <input type="text" required id="heading" placeholder="Add heading">
-        <input type="text" id="description" placeholder="Add description">
         <label for="level">Select prioryty</label>
         <select id="level">
             <option value="low">Low</option>
             <option value="normal">Normal</option>
             <option value="hight">Hight</option>
         </select>
+        <label for="heading">Add heading</label>
+        <input type="text" required id="heading">
+        <label for="description">Add description</label>
+        <textarea id="description"></textarea>
         <input type="submit" class="button" id="buttonId" value="Add new 'ToDo'">
     </div>
     <div id="todo-list"></div>
