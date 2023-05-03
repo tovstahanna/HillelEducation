@@ -48,33 +48,4 @@ function SaveOnClick(){
   i++;
 }
 
-function SetToDoneClick(){
-  const inputs = document.querySelectorAll('input');
-  for (let index = 0; index < inputs.length; index++) {
-    if(inputs[index].className == 'settodone' && inputs[index].value == 'on'){
-      const input = inputs[index];
-      const elementId = 'item-' + input.id;
-      const buttonId = 'remove-' + input.id;
-      const element = document.getElementById(elementId);
-      const button = document.getElementById(buttonId);
-      element.className += ' done';
-      button.disabled = false;
-      button.className = 'remove';
-      button.addEventListener('click', () => {
-        element.remove();
-      });
-      
-    }
-  }
-}
-
-function RemoveClick(){
-  const buttons = document.querySelectorAll('button');
-  for (let index = 0; index < buttons.length; index++) {
-    if(buttons[index].className == 'remove'){
-      //
-    }
-  }
-}
-
 button.addEventListener('click', SaveOnClick);
