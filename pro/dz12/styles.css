@@ -1,0 +1,38 @@
+#main{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 300px;
+    border: 2px solid violet;
+    padding: 20px;
+}
+#main input, #main select,
+#main label, #main button{
+    margin-bottom: 10px;
+}
+.button{
+    background-color: violet;
+    color: white;
+    width: 150px;
+    border-radius: 30px;
+}
+#todo-list{
+    padding: 30px;
+}
+.item{
+    display: flex;
+    border: 2px solid violet;
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.low{
+    background-color: lightskyblue;
+}
+.normal{
+    background-color: lightgreen;
+}
+.hight{
+    background-color: lightpink;
+}
