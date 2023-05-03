@@ -42,7 +42,8 @@ textarea{
     background-color: lightpink;
 }
 .done h2, .done p{
-    text-decoration: line-through gray;
+    text-decoration-line: line-through;
+    text-decoration-color: gray;
     color: gray;
 }
 .low.done{
