@@ -26,11 +26,9 @@ function sumArray(array){
 }
 
 function Student(name, faculty, marks = []) {
-  const object = {
-    userName: name,
-    faculty,
-    marks
-  };
+  this.userName = name;
+  this.faculty = faculty;
+  this.marks = marks;
   this.getAvgMark = function(){
     let result = verifySource(this.marks);
     return sumArray(result)/result.length;
@@ -80,10 +78,7 @@ function Student(name, faculty, marks = []) {
 }
 
 
-const student = new Student();
-student.userName = 'Katy Smith';
-student.faculty = 'IT';
-student.marks = [5, 10, 12, 10, 3, 7];
+const student = new Student('Katy Smith', 'IT', [5, 10, 12, 10, 3, 7]);
 console.log(student);
 // Методы
 console.log( 'средняя оценка студента:', student.getAvgMark() ); // средняя оценка студента
