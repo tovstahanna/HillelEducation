@@ -18,7 +18,7 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner" style="text-align: center;">
+        <div id="slider-block" class="carousel-inner" style="text-align: center;">
             <div class="carousel-item active" style="background-color: aquamarine;height: 200px;">
                 <h2>Slider title 1</h2>
                 <p>Slider description 1</p>
@@ -41,5 +41,30 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+    <select id="change-slider">
+        <option value="0">Select action</option>
+        <option value="showPrev">Show Prev Slide</option>
+        <option value="showNext">Show Next Slide</option>
+        <option value="showFirst">Show First Slide</option>
+        <option value="showLast">Show Last Slide</option>
+        <option value="showSlide">Show x Slide</option>
+        <option value="addNew">Add New Slide</option>
+        <option value="addNewX">Add New Slide in x position</option>
+        <option value="removeLast">Remove Last Slide</option>
+        <option value="removeSlide">Remove x Slide</option>
+    </select>
+
+    <form id="add-slide" style="display: none;">
+        <input id="slider_number" name="number" type="number" placeholder="slide position" style="display: none;">
+        <input id="slide_title" name="title" type="text" placeholder="slide title">
+        <input id="slide_description" name="description" type="description" placeholder="slide description">
+        <input type="submit" id="addNewSlide" value="Add New Slide">
+    </form>
+
+    <form id="remove-show-slide" style="display: none;">
+        <input name="number" type="number" placeholder="slide position">
+        <input type="submit" id="remove-show-Slide" value="Do">
+    </form>
 </body>
 </html>
