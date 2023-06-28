@@ -1,51 +1,89 @@
+const email = document.getElementById('username');
+const pass = document.getElementById('userpass');
 const button = document.getElementById('buttonId');
+const form = document.getElementById('loginform');
+const user_email = 'admin@adm.com';
+const user_pass = 'adm123';
+let count = 0;
 
-let i=0;
-function SaveOnClick(){
-  const todoList = document.getElementById('todo-list');
-  const heading = document.getElementById('heading');
-  const description = document.getElementById('description');
-  const level = document.getElementById('level');
-  const div = document.createElement('div');
-  div.className = `item ${level.value}`;
-  const className = div.className;
-  div.id = `item-${i}`;
-  const check = document.createElement('input');
-  check.type = 'checkbox';
-  check.className = 'settodone';
-  check.id = i;
-  div.insertAdjacentElement("beforeend", check);
-  check.addEventListener('change', () => {
-    if(check.checked){
-      div.className = className + ' done';
-      button.disabled = false;
-        button.className = 'remove';
-        button.addEventListener('click', () => {
-          div.remove();
-        });
-    }else{
-      button.disabled = true;
-      div.className = className;
+email.addEventListener('focusout', emaiValidation);
+pass.addEventListener('focusout', passwordValidation);
+form.addEventListener('submit', login);
+
+function emaiValidation(el){
+  let error;
+  if(el.target){
+    const emailarray = [];
+    for (let index = 0; index < el.target.value.length; index++) {
+      emailarray[index] = el.target.value[index];
     }
-    
-  });
-  const headingH2 = document.createElement('h2');
-  const descriptionP = document.createElement('p');
-  const button = document.createElement('button');
-  headingH2.innerText = heading.value;
-  descriptionP.innerText = description.value;
-  button.id = 'remove-' + i;
-  button.innerText = 'x';
-  button.disabled = true;
-  div.insertAdjacentElement("beforeend", headingH2);
-  div.insertAdjacentElement("beforeend", descriptionP);
-  div.insertAdjacentElement("beforeend", button);
-  todoList.insertAdjacentElement('beforeend', div);
-  
-  heading.value = '';
-  description.value = '';
-  level.value = 'low';
-  i++;
+    if( count < 1 ) {
+      error = document.createElement('p');
+      error.id = 'email-error';
+     } else{
+      error = document.getElementById('email-error');
+     }
+    if(emailarray.includes('@', 2) && emailarray.includes('.', 5) && emailarray.length > 6){ // **@**.**
+      pass.disabled = false;
+      error.remove(); count = 0;
+      return true;
+    }else{
+      error.innerText = 'Email has incorrect format';
+    }
+    if(el.srcElement && error.innerText != ''){
+      el.srcElement.after(error);
+      count++;
+    }
+  }
+  return false;
 }
 
-button.addEventListener('click', SaveOnClick);
+
+function passwordValidation(password){
+  let error;
+  if(password.target){
+    if( count < 1 ) {
+      error = document.createElement('p');
+      error.id = 'pass-error';
+    } else{
+      error = document.getElementById('pass-error');
+    }
+    if(password.target.value.length >= 6){ // ******
+      button.disabled = false;
+      error.remove(); count = 0;
+    }else{
+      error.innerText = 'Password is less then 6 symbols';
+    }
+    if(password.srcElement && error.innerText != ''){
+      password.srcElement.after(error);
+      count++;
+    }
+  }
+  return false;
+}
+
+function login(event){
+  event.preventDefault();
+  let msg;
+  if( count < 1 ) {
+    msg = document.createElement('p');
+    msg.id = 'form-msg';
+  } else{
+    msg = document.getElementById('form-msg');
+  }
+  if( email.value == user_email && pass.value == user_pass ){
+    msg.innerText = 'You are succesfully login!';
+    form.style = 'display: none;';
+  }else{
+    msg.innerText = 'There is no user with such credentials. Try again, please!';
+    email.value = '';
+    pass.value = '';
+    pass.disabled = true;
+    button.disabled = true;
+  }
+
+  if(msg.innerText != ''){
+    form.after(msg);
+    count++;
+  }
+}

@@ -1,0 +1,12 @@
+.row{
+    padding: 15px;
+}
+
+.row p{
+    font-style: italic;
+    font-size: 12px;
+}
+
+#email-error, #pass-error{
+    color: red;
+}

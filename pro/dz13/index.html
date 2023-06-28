@@ -10,12 +10,17 @@
 </head>
 <body>
     <h1>Login form</h1>
-    <form>
+    <p>Right access is: admin@adm.com / adm123</p>
+    <form id="loginform" method="GET" action="#">
         <div class="row">
-            <input type="email" >
+            <input type="email" required id="username" placeholder="Enter your email">
         </div>
-        <div class="row"></div>
-        <div class="row"></div>
+        <div class="row">
+            <input type="password" disabled required id="userpass" placeholder="Enter your password">
+        </div>
+        <div class="row">
+            <input type="submit" id="buttonId" value="Login" disabled>
+        </div>
     </form>
 </body>
 </html>
