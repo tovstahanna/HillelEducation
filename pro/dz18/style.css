@@ -1,0 +1,15 @@
+#users, #new_users {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#users div, #new_users div{
+    width: 300px;
+    padding: 20px;
+    border: 2px double blueviolet;
+    margin-bottom: 15px;
+}
+a {
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid cornflowerblue;
+}
