@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home task 19</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    
+    <form id="loginform" method="post" action="https://reqres.in/api/login">
+        <h1>Login form</h1>
+        <p>Right access is: admin@adm.com / adm123</p>
+        <div class="row">
+            <input type="email" required id="username" placeholder="Enter your email">
+        </div>
+        <div class="row">
+            <input type="password" required id="userpass" placeholder="Enter your password">
+        </div>
+        <div class="row">
+            <input type="submit" id="buttonId" value="Login">
+        </div>
+    </form>
+
+    <h1>User list</h1>
+    <div id="users"></div>
+
+</body>
+</html>
