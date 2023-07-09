@@ -12,7 +12,6 @@ const pagination = document.createElement('div');
 const text = document.createElement('p');
 pagination.id = 'pagination';
 
-
 class Person {
     constructor(id, name, surname, email, avatar) {
         this.id = id;
@@ -95,15 +94,29 @@ function login(event){
         "email" : email.value,
         "password" : pass.value
     }
-    //let msg;
-
+    let msg;
+    if( count < 1 ) {
+        msg = document.createElement('p');
+        msg.id = 'form-msg';
+    } else{
+        msg = document.getElementById('form-msg');
+    }
     xhr.open(event.target.method, event.target.action, true);
     
     xhr.onload = (e) => {
         try {
             const response = JSON.parse(e.target.response);
-            console.log(response);
-            //if(event.target.status === 200) 
+
+            if(event.target.status === 200) {
+                form.style = 'display: none;';
+                msg.innerText = 'You are succesfully login!';
+                ajax(1);
+            }else{
+                msg.innerText = response;
+                email.value = '';
+                pass.value = '';
+            }
+
         } catch(e) {
             console.warn(e);
         }
@@ -114,31 +127,11 @@ function login(event){
     xhr.onerror = (e) => {
         console.log(e)
     }
-    console.log(JSON.stringify(login_info));
-    
-
-
-
-    // if( count < 1 ) {
-    //     msg = document.createElement('p');
-    //     msg.id = 'form-msg';
-    // } else{
-    //     msg = document.getElementById('form-msg');
-    // }
-    // if( email.value == user_email && pass.value == user_pass ){
-    //     msg.innerText = 'You are succesfully login!';
-    //     form.style = 'display: none;';
-    //     ajax(1); 
-    // }else{
-    //     msg.innerText = 'There is no user with such credentials. Try again, please!';
-    //     email.value = '';
-    //     pass.value = '';
-    // }
-
-    // if(msg.innerText != ''){
-    //     form.after(msg);
-    //     count++;
-    // }
+    console.log(event.target.method, event.target.action, email.value, pass.value);
+    if(msg.innerText != ''){
+        form.after(msg);
+        count++;
+    }
 }
 
 function emaiValidation(el){
