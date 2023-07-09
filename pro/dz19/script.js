@@ -23,9 +23,23 @@ class Person {
     createCard(){
         const image = this.avatar ? `<img src="${this.avatar}" alt="${this.surname}">` : '';
         return `<div class="card" id="user-${this.id}">
-                    <h2>${this.name} ${this.surname}</h2>
+                    <div class="info">
+                        <h2>${this.name} ${this.surname}</h2>
                         ${image}
-                    <p>${this.email}</p>
+                        <p>${this.email}</p>
+                    </div>
+                    <div class="buttons">
+                        <button id="edit">Edit</button>
+                        <button id="delete">Delete</button>
+                    </div>
+                    <form method="post" action="" class="edit-form">
+                        <p> edit info for this user</p>
+                        <input type="text" placeholder="First name" value="${this.name}" name="first_name">
+                        <input type="text" placeholder="Last name" value="${this.surname}" name="last_name">
+                        <input type="email" placeholder="Email" value="${this.email}" name="email">
+                        <input type="text" placeholder="Avatar" value="${this.avatar}" name="avatar">
+                        <input type="submit" value="Save">
+                    </form>
                 </div>`;
     }
 }
@@ -218,3 +232,4 @@ function addNewUser(event){
 email.addEventListener('focusout', emaiValidation);
 pass.addEventListener('focusout', passwordValidation);
 form.addEventListener('submit', login);
+ajax(1);

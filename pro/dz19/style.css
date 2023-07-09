@@ -1,12 +1,25 @@
-#users, #new_users {
+#users{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-#users div, #new_users div{
+#users .card{
     width: 300px;
     padding: 20px;
     border: 2px double blueviolet;
     margin-bottom: 15px;
+}
+.edit-form{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.edit-form input{
+    margin: 10px 0;
+    padding: 5px;
+}
+.card .edit-form{
+    /* display: none; */
 }
 a {
     margin-right: 20px;
