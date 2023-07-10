@@ -125,6 +125,7 @@ function login(event){
                 form.style = 'display: none;';
                 msg.innerText = 'You are succesfully login!';
                 ajax(1);
+
             }else{
                 msg.innerText = response;
                 email.value = '';
@@ -135,7 +136,7 @@ function login(event){
             console.warn(e);
         }
     };
-    
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(login_info));
 
     xhr.onerror = (e) => {

@@ -19,7 +19,7 @@
     padding: 5px;
 }
 .card .edit-form{
-    /* display: none; */
+    display: none;
 }
 a {
     margin-right: 20px;
