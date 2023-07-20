@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home work 20</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./utils/render-template.js" defer></script>
+    <script src="./service/api.js" defer></script>
+    <script src="./components/login-component.js" defer></script>
+    <script src="./components/user-component.js" defer></script>
+    <script src="./script.js" defer></script>
+
+
+</head>
+<body>
+    <main id="main"></main>
+    
+    <script type="text/html" id="login-template">
+        <form id="login-form">
+            <h1>Login form</h1>
+            <input type="email" id="email" placeholder="Email" />
+            <input type="password" id="password" placeholder="Password" />
+            <button>Submit</button>
+        </form>
+    </script>
+
+    <script type="text/html" id="user-card-template">
+        <div class="card" id="user-{{id}}">
+            <div class="info">
+                <h2>{{first_name}} {{last_name}}</h2>
+                {{image}}
+                <p>{{email}}</p>
+            </div>
+            <div class="buttons">
+                <button id="edit-{{id}}">Edit</button>
+                <button id="delete-{{id}}">Delete</button>
+            </div>
+            <form id="edit-form-{{id}}" class="hide">
+                <h3>Edit info for this user</h3>
+                <input type="text" placeholder="First name" value="{{first_name}}" name="first_name">
+                <input type="text" placeholder="Last name" value="{{last_name}}" name="last_name">
+                <input type="email" placeholder="Email" value="{{email}}" name="email">
+                <input type="text" placeholder="Avatar" value="{{avatar}}" name="avatar">
+                <button>Save</button>
+            </form>
+        </div>
+    </script>
+
+    <script type="text/html" id="add-template">
+        <form id="add-form">
+            <h3>Add new user</h3>
+            <input type="text" placeholder="First name" name="first_name">
+            <input type="text" placeholder="Last name" name="last_name">
+            <input type="email" placeholder="Email" name="email">
+            <input type="password" name="password" placeholder="Password" />
+            <input type="text" placeholder="Avatar" name="avatar">
+            <button>Add</button>
+        </form>
+    </script>
+</body>
+</html>
