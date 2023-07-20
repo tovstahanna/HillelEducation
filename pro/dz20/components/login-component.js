@@ -18,7 +18,7 @@ class LoginComponent {
         const email = this._container.querySelector('#email').value;
         const password = this._container.querySelector('#password').value;
 
-        const msg = validation(email, password).join("<br>");
+        const msg = validation(email, password).join("<br>").toUpperCase();
         const err = document.getElementById('error');
         if(msg){
             if(err) err.remove();
@@ -28,7 +28,16 @@ class LoginComponent {
         if (!msg && email && password) {
             if(err) err.remove();
             api.login({email, password})
-                .then(response => this.onSuccess())
+                .then(response => {
+                    if(response.status == 400){
+                        return response.json();
+                    }else{
+                        this.onSuccess();
+                    }
+                })
+                .then(response => {
+                    this._container.insertAdjacentHTML('beforebegin', `<p id="error">${JSON.stringify(response).replace('{"error":"','').replace('"}','').toUpperCase()}</p>`);                    
+                })
                 .catch(error => console.log(error));
         }
     }

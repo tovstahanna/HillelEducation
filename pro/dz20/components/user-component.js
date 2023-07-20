@@ -17,7 +17,6 @@ class Cards {
             this._container.insertAdjacentHTML('beforeend', renderTemplate(this._template, element));
 
             document.getElementById('edit-form-' + element.id).hidden = true;
-
             const edit = document.getElementById(`edit-${element.id}`);
             edit.addEventListener('click', this.onEdit);
             document.getElementById(`delete-${element.id}`).addEventListener('click', this.onDelete);
@@ -97,9 +96,13 @@ class Cards {
                         avatar: fAvatar
                     })
                     .then((responce) => {
-                        console.log(responce, this._container);
                         responce.image = responce.avatar ? `<img src="${responce.avatar}" alt="${responce.last_name}">` : '';
                         this._container.insertAdjacentHTML('afterbegin', renderTemplate(this._template, responce));
+
+                        document.getElementById('edit-form-' + responce.id).hidden = true;
+                        const edit = document.getElementById(`edit-${responce.id}`);
+                        edit.addEventListener('click', this.onEdit);
+                        document.getElementById(`delete-${responce.id}`).addEventListener('click', this.onDelete);
                     })
                     .catch(error => console.log(error));
             }
