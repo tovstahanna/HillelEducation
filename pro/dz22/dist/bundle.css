@@ -1,0 +1,17 @@
+h1 {
+  color: blue;
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+ul {
+  list-style-type: lower-alpha;
+}
+
+ul li {
+  color: green;
+  text-transform: uppercase;
+}
