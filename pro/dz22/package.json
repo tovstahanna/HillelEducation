@@ -18,6 +18,10 @@
     "gulp-concat-css": "^3.1.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
+    "html-webpack-plugin": "^5.5.3",
     "sass": "^1.64.1"
+  },
+  "dependencies": {
+    "file-loader": "^6.2.0"
   }
 }
