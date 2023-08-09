@@ -1,0 +1,23 @@
+$inactive-color: grey;
+$indent: 10px;
+
+h1{
+    color: rgb(121, 65, 225);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    & header{
+        padding: $indent;
+    }
+    & .container{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        padding: $indent;
+        & aside{
+            padding-right: 40px;
+        }
+    } 
+}
