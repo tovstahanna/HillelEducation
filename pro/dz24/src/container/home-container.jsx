@@ -15,10 +15,6 @@ export class HomeContainer extends React.Component {
         this.onButtonClick = this.onButtonClick.bind(this);
     }
 
-    componentDidMount(){
-        
-    }
-
     onButtonClick(){
         const icons = document.getElementById('icons');
         let max = 0;
@@ -37,11 +33,8 @@ export class HomeContainer extends React.Component {
         const items = iconList.map( (el, index) => <IconSmile key={`icon-${index}`} iconClass={el} /> );
         return (
             <main>
-                <HeaderContainer title="I am Header" values={this.props.headerItems} />
+                <HeaderContainer title="Home task" values={this.props.headerItems} />
                 <div className="container">
-                    <aside>
-                        <MenuComponent id="menu" menuCl={this.props.menuCl} items={this.props.asideItems} />
-                    </aside>
                     <div className="content">
                         <HeadingComponent text={this.props.headingH1} />
                         {this.props.text}
@@ -52,7 +45,9 @@ export class HomeContainer extends React.Component {
                             Show the winner
                         </button>
                         { this.state.winner && (
-                            <div className='winner1'>The winner is  <i className={`em ${this.state.winner}`}></i></div>
+                            <div className='winner1'>
+                                <p>The winner is  <i className={`em ${this.state.winner}`}></i></p>
+                            </div>
                         )}   
                     </div>
                 </div>

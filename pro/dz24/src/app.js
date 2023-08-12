@@ -15,6 +15,6 @@ root.render(App({
     headingH1: "Vote for the best icon",
     text: "There is a list of icons that I like. What icon do you like?", 
     menuCl: "main-menu",
-    headerItems: ['Header1', 'Header2'],
-    asideItems: ['Aside Item 1', 'Aside Item 2', 'Aside Item 3']
+    headerItems: [],
+    asideItems: []
 }));
