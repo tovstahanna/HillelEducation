@@ -16,7 +16,7 @@ export class IconSmile extends React.Component{
     }
 
     render(){
-        return ( 
+        return (
             <div data-name={this.props.iconClass} data-count={this.state.counter}>
                 <button onClick={this.onIconClick}>
                     <i className={`em ${this.props.iconClass}`}></i>
