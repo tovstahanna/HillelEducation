@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { HeaderContainer } from './header-container.jsx'
 import { MenuComponent } from "../components/menu-component.jsx";
 import { HeadingComponent } from "../components/heading-component.jsx";
@@ -7,8 +7,9 @@ import { IconSmile } from '../components/icon-component.jsx';
 export class HomeContainer extends React.Component {
     constructor(){
         super();
-        this.winnerElement = document.createElement('div');
-        this.winnerElement.classList.add('winner');
+        this.icons = React.createRef();
+        this.winnerElement = React.createElement('div', {className: 'winner'});
+        console.log(this.icons);
         this.state = { 
             winner: this.winnerElement.innerHTML
         }
@@ -16,9 +17,8 @@ export class HomeContainer extends React.Component {
     }
 
     onButtonClick(){
-        const icons = document.getElementById('icons');
         let max = 0;
-        for (const child of icons.children) {
+        for (const child of this.icons.current.children) {
             if(child.getAttribute('data-count') > max){
                 max = new Number(child.getAttribute('data-count'));
                 this.setState({
@@ -30,7 +30,7 @@ export class HomeContainer extends React.Component {
 
     render(){
         const iconList = new Array('em-apple', 'em-avocado', 'em-beetle', 'em-bee');
-        const items = iconList.map( (el, index) => <IconSmile key={`icon-${index}`} iconClass={el} /> );
+        const items = iconList.map( (el, index) => <IconSmile  key={`icon-${index}`} iconClass={el} /> );
         return (
             <main>
                 <HeaderContainer title="Home task" values={this.props.headerItems} />
@@ -38,7 +38,7 @@ export class HomeContainer extends React.Component {
                     <div className="content">
                         <HeadingComponent text={this.props.headingH1} />
                         {this.props.text}
-                        <div id='icons' className='icons-list'>
+                        <div ref={this.icons} className='icons-list'>
                             { items }
                         </div>
                         <button id='result' onClick={this.onButtonClick}>
@@ -48,8 +48,8 @@ export class HomeContainer extends React.Component {
                             <div className='winner1'>
                                 <p>The winner is  <i className={`em ${this.state.winner}`}></i></p>
                             </div>
-                        )}   
-                    </div>
+                        )} 
+                    </div>  
                 </div>
             </main>
         );
